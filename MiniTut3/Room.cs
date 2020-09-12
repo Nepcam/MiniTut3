@@ -61,7 +61,7 @@ namespace MiniTut3
         /// <returns>All information as a neatly padded out string</returns>
         public override string ToString()
         {
-            return RoomNo.ToString().PadRight(5) + RoomType.ToString().PadRight(10) + Capacity;
+            return RoomNo.ToString().PadRight(5) + RoomType.ToString().PadRight(10) + Capacity.ToString().PadRight(5) + GetCost().ToString("c");
         }
 
         /// <summary>

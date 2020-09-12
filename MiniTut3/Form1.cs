@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace MiniTut3
 {
-    enum RoomTypes { Large, Standard, Suite };
+    enum RoomTypes { Large, Standard, Suite }; // enum available to all code
     
     public partial class Form1 : Form
     {
