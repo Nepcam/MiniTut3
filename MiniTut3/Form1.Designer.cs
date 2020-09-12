@@ -34,12 +34,12 @@
             // 
             // listBoxData
             // 
-            this.listBoxData.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxData.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxData.FormattingEnabled = true;
-            this.listBoxData.ItemHeight = 23;
+            this.listBoxData.ItemHeight = 18;
             this.listBoxData.Location = new System.Drawing.Point(21, 31);
             this.listBoxData.Name = "listBoxData";
-            this.listBoxData.Size = new System.Drawing.Size(928, 487);
+            this.listBoxData.Size = new System.Drawing.Size(928, 472);
             this.listBoxData.TabIndex = 0;
             // 
             // buttonTest
