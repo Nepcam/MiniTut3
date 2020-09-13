@@ -27,7 +27,7 @@ namespace MiniTut3
         {
             _roomNo = roomNo;
             _roomType = roomType;
-            _capacity = capacity;
+            Capacity = capacity;
         }
 
         /// <summary>
@@ -52,7 +52,17 @@ namespace MiniTut3
         public int Capacity
         {
             get { return _capacity; }
-            set { _capacity = value; }
+            set 
+            {
+                if (value >= 1 && value <= 6)
+                {
+                    _capacity = value;
+                }
+                else
+                {
+                    throw new Exception("The capacity must be between 1 and 6 inclusive");
+                }
+            }
         }
 
         /// <summary>

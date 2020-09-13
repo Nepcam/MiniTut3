@@ -30,6 +30,13 @@
         {
             this.listBoxData = new System.Windows.Forms.ListBox();
             this.buttonTest = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxRoomNo = new System.Windows.Forms.TextBox();
+            this.textBoxCapcity = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBoxRoomType = new System.Windows.Forms.ComboBox();
+            this.buttonAddRoom = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBoxData
@@ -53,16 +60,88 @@
             this.buttonTest.UseVisualStyleBackColor = true;
             this.buttonTest.Click += new System.EventHandler(this.buttonTest_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1025, 177);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Room No:";
+            // 
+            // textBoxRoomNo
+            // 
+            this.textBoxRoomNo.Location = new System.Drawing.Point(1100, 177);
+            this.textBoxRoomNo.Name = "textBoxRoomNo";
+            this.textBoxRoomNo.Size = new System.Drawing.Size(100, 20);
+            this.textBoxRoomNo.TabIndex = 3;
+            // 
+            // textBoxCapcity
+            // 
+            this.textBoxCapcity.Location = new System.Drawing.Point(1100, 252);
+            this.textBoxCapcity.Name = "textBoxCapcity";
+            this.textBoxCapcity.Size = new System.Drawing.Size(100, 20);
+            this.textBoxCapcity.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(1025, 252);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Capacity";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(1025, 216);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Capacity";
+            // 
+            // comboBoxRoomType
+            // 
+            this.comboBoxRoomType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxRoomType.FormattingEnabled = true;
+            this.comboBoxRoomType.Items.AddRange(new object[] {
+            "Standard",
+            "Large",
+            "Suite"});
+            this.comboBoxRoomType.Location = new System.Drawing.Point(1100, 213);
+            this.comboBoxRoomType.Name = "comboBoxRoomType";
+            this.comboBoxRoomType.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxRoomType.TabIndex = 7;
+            // 
+            // buttonAddRoom
+            // 
+            this.buttonAddRoom.Location = new System.Drawing.Point(1028, 308);
+            this.buttonAddRoom.Name = "buttonAddRoom";
+            this.buttonAddRoom.Size = new System.Drawing.Size(193, 23);
+            this.buttonAddRoom.TabIndex = 8;
+            this.buttonAddRoom.Text = "Add Room";
+            this.buttonAddRoom.UseVisualStyleBackColor = true;
+            this.buttonAddRoom.Click += new System.EventHandler(this.buttonAddRoom_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(971, 620);
+            this.ClientSize = new System.Drawing.Size(1278, 620);
+            this.Controls.Add(this.buttonAddRoom);
+            this.Controls.Add(this.comboBoxRoomType);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBoxCapcity);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textBoxRoomNo);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonTest);
             this.Controls.Add(this.listBoxData);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -70,6 +149,13 @@
 
         private System.Windows.Forms.ListBox listBoxData;
         private System.Windows.Forms.Button buttonTest;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxRoomNo;
+        private System.Windows.Forms.TextBox textBoxCapcity;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBoxRoomType;
+        private System.Windows.Forms.Button buttonAddRoom;
     }
 }
 
