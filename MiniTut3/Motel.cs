@@ -11,6 +11,7 @@ namespace MiniTut3
         private string _name = "";
         private string _address = "";
         private string _phoneNo = "";
+        private Room _room;
 
         /// <summary>
         /// gets and sets the name of the motel
@@ -40,6 +41,14 @@ namespace MiniTut3
         }
 
         /// <summary>
+        /// Gets the reference to the room.
+        /// </summary>
+        public Room MotelRoom
+        {
+            get { return _room; }
+        }
+
+        /// <summary>
         /// Initialises the object to the values passed in
         /// </summary>
         /// <param name="name">The name of the motel</param>
@@ -50,6 +59,36 @@ namespace MiniTut3
             Name = name;
             Address = address;
             PhoneNo = phoneNo;
+            _room = null;
+        }
+
+        /// <summary>
+        /// Gets all information about the motel.
+        /// </summary>
+        /// <returns>All information as a neatly padded out string</returns>
+        public override string ToString()
+        {
+            return Name.PadRight(20) + Address.PadRight(30) + PhoneNo;
+        }
+
+        /// <summary>
+        /// Adds a new room to the motel
+        /// </summary>
+        /// <param name="roomNo">Room number</param>
+        /// <param name="roomType">Room type</param>
+        /// <param name="capacity">Room capacity</param>
+        public void AddRoom(int roomNo, RoomTypes roomType, int capacity)
+        {
+            _room = new Room(roomNo, roomType, capacity);
+        }
+
+        /// <summary>
+        /// Gets all information about a room
+        /// </summary>
+        /// <returns>All information about a room as a neatly padded out string</returns>
+        public string GetRoomInfo()
+        {
+            return _room.ToString();
         }
     }
 }
