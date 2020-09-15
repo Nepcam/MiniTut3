@@ -27,7 +27,7 @@ namespace MiniTut3
         {
             _roomNo = roomNo;
             _roomType = roomType;
-            Capacity = capacity;
+            Capacity = capacity; // using public properties
         }
 
         /// <summary>
@@ -54,6 +54,7 @@ namespace MiniTut3
             get { return _capacity; }
             set 
             {
+                // set capacity from 1 to 6 only
                 if (value >= 1 && value <= 6)
                 {
                     _capacity = value;
@@ -72,6 +73,15 @@ namespace MiniTut3
         public override string ToString()
         {
             return RoomNo.ToString().PadRight(5) + RoomType.ToString().PadRight(10) + Capacity.ToString().PadRight(5) + GetCost().ToString("c");
+        }
+
+        /// <summary>
+        /// Returns all information in csv format.
+        /// </summary>
+        /// <returns>All information in csv format</returns>
+        public string ToCsvString()
+        { 
+            return RoomNo + "," + RoomType + "," + Capacity;
         }
 
         /// <summary>

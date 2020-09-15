@@ -7,11 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace MiniTut3
 {
     enum RoomTypes { Large, Standard, Suite }; // enum available to all code
-    
+
     public partial class Form1 : Form
     {
         List<Room> roomList = new List<Room>();
@@ -24,7 +25,7 @@ namespace MiniTut3
         private void UpdateListBox()
         {
             listBoxData.Items.Clear();
-            foreach(Room room in roomList)
+            foreach (Room room in roomList)
             {
                 listBoxData.Items.Add(room);
             }
@@ -49,7 +50,7 @@ namespace MiniTut3
             // the foreach loop makes the list read only
             // you can't add or remove elements from the list inside the foreach loop
             // you can change values inside the objects
-            foreach(Room room in roomList)
+            foreach (Room room in roomList)
             {
                 Console.WriteLine(room);
             }
@@ -87,6 +88,63 @@ namespace MiniTut3
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void saveFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StreamWriter writer;
+
+            openFileDialog1.Filter = "CSV FIles|*.csv|All Files|*.*";
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                writer = File.CreateText(saveFileDialog1.FileName);
+                foreach (Room r in roomList)
+                {
+                    writer.WriteLine(r.ToCsvString());
+                }
+                writer.Close();
+            }
+        }
+
+        private void loadFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StreamReader reader;
+            string line = "";
+            string[] csvArray;
+            int roomNo = 0;
+            RoomTypes roomType;
+            int capacity = 0;
+
+            roomList.Clear();
+            listBoxData.Items.Clear();
+
+            openFileDialog1.Filter = "CSV FIles|*.csv|All Files|*.*";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                reader = File.OpenText(openFileDialog1.FileName);
+                while(!reader.EndOfStream)
+                {
+                    try
+                    {
+                        line = reader.ReadLine();
+                        csvArray = line.Split(',');
+                        if (csvArray.Length == 3)
+                        {
+                            roomNo = int.Parse(csvArray[0]);
+                            roomType = (RoomTypes)Enum.Parse(typeof(RoomTypes), csvArray[1]);
+                            capacity = int.Parse(csvArray[2]);
+
+                            roomList.Add(new Room(roomNo, roomType, capacity));
+                        }
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Error: " + line);
+                    }
+                }
+                reader.Close();
+                UpdateListBox();
             }
         }
     }
